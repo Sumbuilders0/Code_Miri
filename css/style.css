@@ -1,0 +1,60 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #009579;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+  .input{
+      margin-top: 30px;
+      margin-bottom: 20px;
+      border: 5px solid #0ec7a5;
+      border-radius: 8px;
+      background-color: #009579;
+      display: inline-block;
+
+  }
+  .inputFile{
+      display:    flex;
+      background-color: #009579;
+      color: white;
+      padding: 10px;
+  }
+  input::file-selector-button {
+      border: none;
+      background-color: #07715e;
+      color: white;
+      padding: 10px 7px;
+      border-radius: 7px;
+  }
+  input::file-selector-button:hover{
+      color: black;
+      background-color: #0ec7a5;
+  }
+.compet{
+    border:3px solid #0ec7a5;
+    border-radius: 6px;
+    width: 800px;
+    margin-bottom: 15px;
+}

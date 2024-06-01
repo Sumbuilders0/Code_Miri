@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+<h1 style="text-align: center;">Recruiter</h1>
+
+    <div class="input">
+        <input type="file" id="upload" class="inputFile" accept=".docx" multiple="multiple">
+    </div>
+    <button type="submit"> Submit and Send </button>
+        <div class="compet">competence profile</div>
+        <div id="output" style="width: 800px;background-color: rgb(194, 194, 194);border:3px solid #0ec7a5;border-radius: 6px;">career profile</div>
+        <script>
+            document.getElementById('upload').addEventListener('change', function(event) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    mammoth.convertToHtml({arrayBuffer: event.target.result})
+                        .then(displayResult)
+                        .catch(handleError);
+                };
+                reader.readAsArrayBuffer(this.files[0]);
+            });
+            function displayResult(result) {
+                document.getElementById('output').innerHTML = result.value;
+            }
+    
+            function handleError(err) {
+                console.log(err);
+            }
+        </script>
+
+
+
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+</body>
+</html>

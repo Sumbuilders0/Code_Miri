@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.w3-border-right {
+    border-right: 1px solid #ccc !important;
+}
+.w3-sidebar {
+    height: 100%;
+    width: 270px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+}
+
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    position: center;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  img {
+    max-width: 100px;
+    height: auto;
+  }
+  
+</style>
+<body>
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <img src="/images/download.jpg" class="center" alt="" style="margin-top: 20px;margin-bottom: 20px; width: 100px;height: 100px;border-radius: 50px;">
+        <span style="margin-left: 10px;" id="name">Takhta Bash</span>
+        
+
+        <a href="Home.html" class="w3-bar-item w3-button">Home</a>
+        <a href="templates/form.html" class="w3-bar-item w3-button">Form</a>
+
+      </div>    
+      <!-- Page Content -->
+<div class="w3-teal">
+    <div class="header" style="display: flex;justify-content: space-between;">
+    <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()"><img src="/images/icons8-menu-50.png" alt="" style="width: 50px;"></button>
+    <div class="sign" style="text-align: right;margin-top: 10px;padding: 5px 6px;"><a href="/login1.html" style="text-decoration: none;margin-right: 30px;font-size:25px">Sign out</a></div>        
+    </div>
+
+    <div class="w3-container">
+      <h1 style="text-align: center;margin-bottom: 20px;">Resource Manager</h1>
+    </div>
+    
+  </div>
+  <div class="main" >
+  <div class="search" style="margin-top: 20px;float: right;margin-right: 20px;">
+    <form action="#" method="post" target="_blank">
+        <input type="text" placeholder="Search Courses" name="search">
+        <button style="border-radius: 15px;">
+            <i class="fa fa-search" style="font-size: 18px;">Search</i>
+        </button>
+    </form>
+</div>
+<div class="chart1" style="width: 50%;padding: 10px;margin-left: 650px;"><canvas id="myCharta" style="width:100%;max-width:600px;"></canvas></div>
+
+<div class="feedback" style="border: 2px solid black;">
+
+      <h1>Decline Reason:</h1>
+      <table id="files-table">
+        <thead>
+          <tr>
+            <th>Links</th>
+            <th>Reasons:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Files will be inserted here -->
+        </tbody>
+      </table>
+  
+      <script src="/js/null.js"></script>
+  
+</div>
+<div id="myChart" style="  margin: auto;
+width: 50%;width:100%; max-width:700px; height:600px;">
+</div>
+
+  </div>
+
+
+
+  <script>
+            function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+        }
+        
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+        }
+        google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+// Set Data
+const data = google.visualization.arrayToDataTable([
+  ['Contry', 'Mhl'],
+  ['Uploaded Resume',50],
+  ['Accepted',22],
+  ['Job Avalibites',22]
+]);
+
+// Set Options
+const options = {
+  title:'Employment Statistics',
+  is3D:true
+};
+
+// Draw
+const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+chart.draw(data, options);
+}       
+
+const xValues = ["Accepted", "Declined"];
+const yValues = [55, 49];
+const barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myCharta", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Accepting Rate"
+    }
+  }
+});
+
+  </script>
+  
+
+</body>
+</html>
